@@ -48,15 +48,17 @@
       </button>
     </div>
 
-    <div class="bground">
+
+    <!-- Modal Form -->
+    <div class="bground modal">
       <div class="content">
-        <span class="close"></span>
+        <span class="close close-form"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
+          <form name="reserve" action="index.html" method="get" onsubmit="return Validate();">
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" pattern="[A-Za-z]{3}"
-                onfocusout="myFunction()" /><br>
+              <input class="text-control" type="text" pattern="[a-zA-Z]" id="first" name="first" minlength="2"
+                pattern="[A-Za-z]{3}" onfocusout="myFunction()" /><br>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
@@ -103,7 +105,7 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
+              <input class="checkbox-input" type="checkbox" id="checkbox1" />
               <label class="checkbox2-label" for="checkbox1" required>
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
@@ -118,6 +120,19 @@
             </div>
             <input class="btn-submit button" type="submit" value="C'est parti" />
           </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modale Confirmation-->
+    <div class="bground confirmation">
+      <div class="content">
+        <span class="close close-confirmation" onclick="closeConfirmationInscription()"></span>
+        <div class="modal-body">
+          <p>Merci pour <br>
+            votre inscription.</p>
+          <input class="btn-submit button" type="submit" value="Fermer" onclick="closeConfirmationInscription()" />
+
         </div>
       </div>
     </div>
