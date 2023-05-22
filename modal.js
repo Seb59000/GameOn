@@ -10,9 +10,10 @@ function editNav() {
 // DOM Elements
 const modal = document.querySelector(".modal");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 const closeModal = document.querySelector(".close-form");
 
+const checkboxPlace = document.querySelectorAll(".cb-place");
+const conditionsAccepted = document.getElementById("checkbox1");
 const confirmation = document.querySelector(".confirmation");
 
 // launch modal event
@@ -38,6 +39,7 @@ function verifFormValidated() {
   if (valid != null) {
     // Suppr des données de sessionStorage
     sessionStorage.removeItem('valid');
+
     // affichage message confirmation
     showConfirmationInscription();
   }
@@ -45,8 +47,21 @@ function verifFormValidated() {
 
 // validation form
 function Validate() {
-  let valid = true;
 
+  // verif date naissance
+  let birthdate = verifBirthDate();
+  prompt(birthdate);
+  // verif si le lieu est choisi
+  let placeOK = tounamentChosen();
+
+  //verif si date naissance sup à date du jour
+
+  let valid = false;
+  // verif si conditions acceptées et endroit choisis
+  if (conditionsAccepted.checked && placeOK)
+    valid = true;
+
+  prompt(valid);
   // si tout est OK
   if (valid) {
     // affichage modale confirmation inscription
@@ -55,6 +70,25 @@ function Validate() {
   } else {
     return false;
   }
+}
+
+function verifBirthDate() {
+  const today = Date.now;
+  prompt(today);
+  const birthdate = document.getElementById("birthdate");
+  prompt(birthdate.value);
+
+  return true;
+}
+
+function tounamentChosen() {
+  let placeOK = false;
+  checkboxPlace.forEach(element => {
+    if (element.checked) {
+      placeOK = true;
+    }
+  });
+  return placeOK;
 }
 
 // display confimration dialog
