@@ -49,8 +49,8 @@ function verifFormValidated() {
 function Validate() {
 
   // verif date naissance
-  let birthdate = verifBirthDate();
-  prompt(birthdate);
+  // let birthdate = verifBirthDate();
+  // prompt(birthdate);
   // verif si le lieu est choisi
   let placeOK = tounamentChosen();
 
@@ -61,7 +61,6 @@ function Validate() {
   if (conditionsAccepted.checked && placeOK)
     valid = true;
 
-  prompt(valid);
   // si tout est OK
   if (valid) {
     // affichage modale confirmation inscription
@@ -72,14 +71,14 @@ function Validate() {
   }
 }
 
-function verifBirthDate() {
-  const today = Date.now;
-  prompt(today);
-  const birthdate = document.getElementById("birthdate");
-  prompt(birthdate.value);
+// function verifBirthDate() {
+//   const today = Date.now;
+//   prompt(today);
+//   const birthdate = document.getElementById("birthdate");
+//   prompt(birthdate.value);
 
-  return true;
-}
+//   return true;
+// }
 
 function tounamentChosen() {
   let placeOK = false;
